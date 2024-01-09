@@ -9,12 +9,14 @@
   <script>
   import AppNavbar from './components/AppNavbar.vue'
   import SideNav from './components/SideNav.vue'
+  import Noticeboard from './components/Noticeboard.vue'
   
   export default {
     name: 'App',
     components: {
       AppNavbar,
-      SideNav
+      SideNav,
+      Noticeboard
     },
     data() {
       return {
