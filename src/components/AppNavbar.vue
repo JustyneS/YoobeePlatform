@@ -8,7 +8,7 @@
       <li><i class="fas fa-bell"></i> Alerts</li>
       <li><i class="fas fa-sticky-note"></i> My Notes</li>
       <li><i class="fas fa-calendar-alt"></i> Calendar</li>
-      <li><i class="fas fa-clipboard"></i> Noticeboard</li>
+      <li><i class="fas fa-clipboard" @click="toggleNoticeboard"></i> Noticeboard</li>
     </ul>
     <img src="@/images/Yoobee_Logo.png" alt="Logo" class="logo">
   </nav>
@@ -18,7 +18,12 @@
 <script>
 export default {
   name: 'AppNavbar',
-  props: ['isNavOpen']
+  props: ['isNavOpen'],
+  methods: {
+    toggleNoticeboard() {
+      this.$emit('toggle-noticeboard');
+    },
+  },
 }
 </script>
 
