@@ -1,60 +1,62 @@
+<!-- Noticeboard.vue -->
 <template>
-    <div class="noticeboard">
-      <!-- Your content goes here -->
-      <h1>Welcome to the Noticeboard!</h1>
+  <div class="noticeboard">
+    <h1>Welcome to the Noticeboard!</h1>
 
-      <div  class="noticeboardMenu">
-        <ul>
-            <li><p class="menuItems">Orientation<i class="fa-solid fa-circle-plus"></i></p></li>
-            <li><p class="menuItems">Monday Posts<i class="fa-solid fa-circle-plus"></i></p></li>
-            <li><p class="menuItems">Live Session Recordings<i class="fa-solid fa-circle-plus"></i></p></li>
-            <li><p class="menuItems">News and Upcoming Events<i class="fa-solid fa-circle-plus"></i></p></li>
-            <li><p class="menuItems">Important Contacts<i class="fa-solid fa-circle-plus"></i></p></li>
-        </ul>
-        </div>
+    <div class="noticeboardMenu">
+      <ul>
+        <li><router-link to="/orientation" class="menuItems">Orientation<i class="fas fa-circle-plus"></i></router-link></li>
+        <li><router-link to="/monday-posts" class="menuItems">Monday Posts<i class="fas fa-circle-plus"></i></router-link></li>
+        <!-- Add similar router-link elements for other menu items -->
+      </ul>
     </div>
-  </template>
-  
+  </div>
+</template>
 
-  <script>
-  export default {
-    name: 'NoticeboardComponent',
-  };
-  </script>
-  
+<script>
+export default {
+  name: 'NoticeboardComponent',
+};
+</script>
 
-  <style scoped>
-  /* Your styling for the component goes here */
-  .noticeboard {
-    padding: 40px;
-  }
 
-  h1 {
-    font-size: 40px;
-    text-align: center;
-  }
-
-.noticeboardMenu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    min-width: 600px;
-    padding-right: 20%;
-    padding-left: 10%;
+<style scoped>
+/* Your styling for the component goes here */
+.noticeboard {
+  padding: 40px;
 }
 
-  .menuItems {
-    font-size: 25px;
-    padding:25px;   
-    text-align: left;
-  }
+h1 {
+  font-size: 40px;
+  text-align: center;
+}
 
-  .fa-solid fa-circle-plus {
-    padding-left: 20px;
-  }
+.noticeboardMenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  min-width: auto;
+  padding-right: 20%;
+  padding-left: 10%;
+}
 
-  ul {
-    list-style-type: none;
-  }
-  </style>
+.noticeboardMenu li {
+  cursor: pointer;
+  margin: 25px;
+}
+
+.menuItems {
+  font-size: 25px;
+  padding: 25px;
+  text-align: left;
+}
+
+.fas.fa-circle-plus {
+  padding-left: 10px;
+}
+
+ul {
+  list-style-type: none;
+}
+</style>
