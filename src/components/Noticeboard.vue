@@ -1,5 +1,6 @@
 <!-- Noticeboard.vue -->
 <template>
+
   <div class="noticeboard">
     <h1>Welcome to the Noticeboard!</h1>
 

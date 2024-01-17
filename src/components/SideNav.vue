@@ -1,28 +1,31 @@
 <template>
-    <div id="sidenav" :class="{ open: isOpen }">
+    <div id="sidenav" :class="{ open: $store.state.isOpen }">
         <ul>
         <li>
           <a class="module" @click="isOpen1 = !isOpen1">MODULE 1</a>
           <ul v-show="isOpen1">
-            <li><a class="topic" href="#topic-1-1">Topic 1</a></li>
-            <li><a class="topic" href="#topic-1-2">Topic 2</a></li>
-            <li><a class="topic" href="#topic-1-3">Topic 3</a></li>
+            <router-link class="module" to="/module-one">Introduction</router-link>
+            <li><router-link class="topic" to="/module-one#topic-1-1">Topic 1</router-link></li>
+            <li><router-link class="topic" to="/module-one#topic-1-2">Topic 2</router-link></li>
+            <li><router-link class="topic" to="/module-one#topic-1-3">Topic 3</router-link></li>
           </ul>
         </li>
         <li>
           <a class="module" @click="isOpen2 = !isOpen2">MODULE 2</a>
           <ul v-show="isOpen2">
-            <li><a class="topic"  href="#topic-2-1">Topic 1</a></li>
-            <li><a class="topic" href="#topic-2-2">Topic 2</a></li>
-            <li><a class="topic" href="#topic-2-3">Topic 3</a></li>
+            <router-link class="module" to="/module-two">Introduction</router-link>
+            <li><router-link class="topic" to="/module-two#topic-2-1">Topic 1</router-link></li>
+            <li><router-link class="topic" to="/module-two#topic-2-2">Topic 2</router-link></li>
+            <li><router-link class="topic" to="/module-two#topic-2-3">Topic 3</router-link></li>
           </ul>
         </li>
         <li>
           <a class="module" @click="isOpen3 = !isOpen3">MODULE 3</a>
           <ul v-show="isOpen3">
-            <li><a class="topic" href="#topic-3-1">Topic 1</a></li>
-            <li><a class="topic" href="#topic-3-2">Topic 2</a></li>
-            <li><a class="topic" href="#topic-3-3">Topic 3</a></li>
+            <router-link class="module" to="/module-three">Introduction</router-link>
+            <li><router-link class="topic" to="/module-one#topic-3-1">Topic 1</router-link></li>
+            <li><router-link class="topic" to="/module-one#topic-3-2">Topic 2</router-link></li>
+            <li><router-link class="topic" to="/module-one#topic-3-3">Topic 3</router-link></li>
           </ul>
         </li>
       </ul>
@@ -38,7 +41,11 @@ export default {
       isOpen3: false,
     };
   },
-  props: ['isOpen']
+  methods: {
+    toggleSidebar() {
+      this.$store.commit('toggle')
+    }
+  }
 };
 </script>
 
