@@ -7,6 +7,7 @@
       <ul>
         <li><router-link to="/orientation" class="menuItems">Orientation<i class="fas fa-circle-plus"></i></router-link></li>
         <li><router-link to="/monday-posts" class="menuItems">Monday Posts<i class="fas fa-circle-plus"></i></router-link></li>
+        <li><router-link to="/live-sessions" class="menuItems">Live Session Recordings<i class="fas fa-circle-plus"></i></router-link></li>
         <!-- Add similar router-link elements for other menu items -->
       </ul>
     </div>
@@ -50,6 +51,8 @@ h1 {
   font-size: 25px;
   padding: 25px;
   text-align: left;
+  text-decoration: none;
+  color: inherit;
 }
 
 .fas.fa-circle-plus {
