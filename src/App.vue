@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <app-navbar :is-nav-open="isNavOpen" @toggle-nav="isNavOpen = !isNavOpen" @toggle-noticeboard="toggleNoticeboard" />
+    <app-navbar :is-nav-open="isNavOpen" @toggle-nav="isNavOpen = !isNavOpen" @toggle-noticeboard="toggleNoticeboard"/>
     <side-nav :is-open="isNavOpen"/>
     <noticeboard-component v-if="showNoticeboard" />
+    <router-view/>
+
     <!-- other components go here -->
   </div>
 </template>
@@ -11,6 +13,7 @@
 import AppNavbar from './components/AppNavbar.vue'
 import SideNav from './components/SideNav.vue'
 import NoticeboardComponent from './components/Noticeboard.vue'
+
 
 export default {
   name: 'App',
@@ -23,6 +26,7 @@ export default {
     return {
       isNavOpen: localStorage.getItem('isNavOpen') === 'true' || false,
       showNoticeboard: false,
+      notes: [],
     };
   },
   watch: {
@@ -31,9 +35,9 @@ export default {
     },
   },
   methods: {
-  toggleNoticeboard() {
-    this.showNoticeboard = !this.showNoticeboard;
+    toggleNoticeboard() {
+      this.showNoticeboard = !this.showNoticeboard;
+    },
   },
-},
 };
 </script>

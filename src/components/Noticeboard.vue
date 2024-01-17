@@ -1,6 +1,7 @@
 <template>
     <div class="noticeboard">
-      <!-- Your content goes here -->
+      
+      
       <h1>Welcome to the Noticeboard!</h1>
 
       <div  class="noticeboardMenu">
@@ -24,7 +25,8 @@
   
 
   <style scoped>
-  /* Your styling for the component goes here */
+ 
+
   .noticeboard {
     padding: 40px;
   }
