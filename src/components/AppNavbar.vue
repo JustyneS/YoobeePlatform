@@ -8,12 +8,15 @@
       <li><i class="fas fa-bell"></i> Alerts</li>
       <li><i class="fas fa-sticky-note"></i> My Notes</li>
       <li><i class="fas fa-calendar-alt"></i> Calendar</li>
-      <li><i class="fas fa-clipboard" @click="toggleNoticeboard"></i> Noticeboard</li>
+      <li>
+        <router-link to="/Noticeboard" class="noticeboard-link">
+          <i class="fas fa-clipboard"></i> Noticeboard
+        </router-link>
+      </li>
     </ul>
     <img src="@/images/Yoobee_Logo.png" alt="Logo" class="logo">
   </nav>
 </template>
-
 
 <script>
 export default {
@@ -26,6 +29,8 @@ export default {
   },
 }
 </script>
+
+
 
 <style scoped>
 
@@ -83,4 +88,16 @@ button {
 .navbar li i {
   font-size: 40px; 
 }
+
+.noticeboard-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+
+
 </style>
