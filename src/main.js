@@ -1,4 +1,5 @@
 import '@fortawesome/fontawesome-free/css/all.css'
+
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import { createStore } from 'vuex' // Import Vuex
@@ -43,3 +44,4 @@ createApp(App)
   .use(router)
   .use(store) // Use Vuex store
   .mount('#app')
+

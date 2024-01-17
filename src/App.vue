@@ -1,18 +1,19 @@
+<!-- App.vue -->
 <template>
   <div id="app">
-    <app-navbar :is-nav-open="isNavOpen" @toggle-nav="isNavOpen = !isNavOpen" @toggle-noticeboard="toggleNoticeboard"/>
-    <side-nav :is-open="isNavOpen"/>
-    <noticeboard-component v-if="showNoticeboard" />
-    <router-view/>
 
-    <!-- other components go here -->
+    <app-navbar :is-nav-open="isNavOpen" @toggle-nav="isNavOpen = !isNavOpen"/>
+    <side-nav :is-open="isNavOpen"/>
+
+    <!-- Use router-view to display the current route's component -->
+    <router-view></router-view>
+
   </div>
 </template>
 
 <script>
-import AppNavbar from './components/AppNavbar.vue'
-import SideNav from './components/SideNav.vue'
-import NoticeboardComponent from './components/Noticeboard.vue'
+import AppNavbar from './components/AppNavbar.vue';
+import SideNav from './components/SideNav.vue';
 
 
 export default {
@@ -20,13 +21,14 @@ export default {
   components: {
     AppNavbar,
     SideNav,
-    NoticeboardComponent,
   },
   data() {
     return {
       isNavOpen: localStorage.getItem('isNavOpen') === 'true' || false,
+
       showNoticeboard: false,
       notes: [],
+
     };
   },
   watch: {
@@ -34,10 +36,12 @@ export default {
       localStorage.setItem('isNavOpen', newVal);
     },
   },
+
   methods: {
     toggleNoticeboard() {
       this.showNoticeboard = !this.showNoticeboard;
     },
   },
+
 };
 </script>
