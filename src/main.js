@@ -12,7 +12,7 @@ import NoticeboardComponent from './components/Noticeboard.vue';
 import MondayPostsComponent from './components/MondayPosts.vue';
 import OrientationComponent from './components/Orientation.vue';
 import LiveSessionsComponent from './components/LiveSessions.vue';
-
+import CalendarComponent from './components/EventCalendar.vue'
 
 
 const routes = [
@@ -24,7 +24,7 @@ const routes = [
   { path: '/monday-posts', component: MondayPostsComponent },
   { path: '/orientation', component: OrientationComponent},
   { path: '/live-sessions', component: LiveSessionsComponent},
- 
+  { path: '/EventCalendar', component: CalendarComponent},
 ]
 
 const router = createRouter({
