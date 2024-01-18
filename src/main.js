@@ -11,6 +11,7 @@ import MyNotesPage from './components/MyNotesPage.vue'
 import NoticeboardComponent from './components/Noticeboard.vue';
 import MondayPostsComponent from './components/MondayPosts.vue';
 import OrientationComponent from './components/Orientation.vue';
+import LiveSessionsComponent from './components/LiveSessions.vue';
 
 const routes = [
   { path: '/module-one', component: ModuleOne },
@@ -20,6 +21,7 @@ const routes = [
   { path: '/noticeboard', component: NoticeboardComponent },
   { path: '/monday-posts', component: MondayPostsComponent },
   { path: '/orientation', component: OrientationComponent},
+  { path: '/live-sessions', component: LiveSessionsComponent},
 ]
 
 const router = createRouter({
