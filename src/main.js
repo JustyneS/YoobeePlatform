@@ -13,6 +13,8 @@ import MondayPostsComponent from './components/MondayPosts.vue';
 import OrientationComponent from './components/Orientation.vue';
 import LiveSessionsComponent from './components/LiveSessions.vue';
 
+
+
 const routes = [
   { path: '/module-one', component: ModuleOne },
   { path: '/module-two', component: ModuleTwo },
@@ -22,6 +24,7 @@ const routes = [
   { path: '/monday-posts', component: MondayPostsComponent },
   { path: '/orientation', component: OrientationComponent},
   { path: '/live-sessions', component: LiveSessionsComponent},
+ 
 ]
 
 const router = createRouter({

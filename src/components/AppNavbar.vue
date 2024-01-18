@@ -7,10 +7,8 @@
       <li><i class="fas fa-user"></i> Profile</li>
       <li><i class="fas fa-bell"></i> Alerts</li>
       <li><router-link class='MyNotesPage' to="/my-notes-page"><i class="fas fa-sticky-note"></i> My Notes</router-link></li>       
-      <li><i class="fas fa-calendar-alt"></i> Calendar</li>
-      <li>
-        <router-link to="/Noticeboard" class="noticeboard-link"><i class="fas fa-clipboard"></i> Noticeboard</router-link>
-      </li>
+      <li><router-link to="/Calendar" class="calendar-link"><i class="fas fa-clipboard"></i> Calendar</router-link></li>
+      <li><router-link to="/Noticeboard" class="noticeboard-link"><i class="fas fa-clipboard"></i> Noticeboard</router-link></li>
     </ul>
     <img src="@/images/Yoobee_Logo.png" alt="Logo" class="logo">
   </nav>
@@ -21,9 +19,6 @@ export default {
   name: 'AppNavbar',
   props: ['isNavOpen'],
   methods: {
-    toggleNoticeboard() {
-      this.$emit('toggle-noticeboard');
-    },
     toggleNav() {
       this.$store.commit('toggle')
     },
@@ -99,6 +94,15 @@ button {
 }
 
 .noticeboard-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.calendar-link {
   display: flex;
   flex-direction: column;
   align-items: center;

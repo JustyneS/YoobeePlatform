@@ -13,8 +13,6 @@
         <hr class="seperator"/>
         <li><router-link to="/live-sessions" class="menuItems">Live Session Recordings<i class="fas fa-circle-plus"></i></router-link></li>
         <hr class="seperator"/>
-        <li><router-link to="/news-events" class="menuItems">News and Events<i class="fas fa-circle-plus"></i></router-link></li>
-        <hr class="seperator"/>
         <li><router-link to="/important-contacts" class="menuItems">Important Contacts<i class="fas fa-circle-plus"></i></router-link></li>
         <hr class="seperator"/>
         <!-- Add similar router-link elements for other menu items -->
