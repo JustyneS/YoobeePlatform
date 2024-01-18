@@ -7,7 +7,7 @@
       <li><i class="fas fa-user"></i> Profile</li>
       <li><i class="fas fa-bell"></i> Alerts</li>
       <li><router-link class='MyNotesPage' to="/my-notes-page"><i class="fas fa-sticky-note"></i> My Notes</router-link></li>       
-      <li><router-link to="/Calendar" class="calendar-link"><i class="fas fa-clipboard"></i> Calendar</router-link></li>
+      <li><router-link to="/EventCalendar" class="calendar-link"><i class="fas fa-clipboard"></i> Calendar</router-link></li>
       <li><router-link to="/Noticeboard" class="noticeboard-link"><i class="fas fa-clipboard"></i> Noticeboard</router-link></li>
     </ul>
     <img src="@/images/Yoobee_Logo.png" alt="Logo" class="logo">
