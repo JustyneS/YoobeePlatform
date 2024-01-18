@@ -9,9 +9,7 @@
       <li><router-link class='MyNotesPage' to="/my-notes-page"><i class="fas fa-sticky-note"></i> My Notes</router-link></li>       
       <li><i class="fas fa-calendar-alt"></i> Calendar</li>
       <li>
-        <router-link to="/Noticeboard" class="noticeboard-link">
-          <i class="fas fa-clipboard"></i> Noticeboard
-        </router-link>
+        <router-link to="/Noticeboard" class="noticeboard-link"><i class="fas fa-clipboard"></i> Noticeboard</router-link>
       </li>
     </ul>
     <img src="@/images/Yoobee_Logo.png" alt="Logo" class="logo">
