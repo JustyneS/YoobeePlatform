@@ -10,6 +10,7 @@ import ModuleThree from './components/ModuleThree.vue'
 import MyNotesPage from './components/MyNotesPage.vue'
 import NoticeboardComponent from './components/Noticeboard.vue';
 import MondayPostsComponent from './components/MondayPosts.vue';
+import OrientationComponent from './components/Orientation.vue';
 
 const routes = [
   { path: '/module-one', component: ModuleOne },
@@ -18,6 +19,7 @@ const routes = [
   { path: '/my-notes-page', component: MyNotesPage },
   { path: '/noticeboard', component: NoticeboardComponent },
   { path: '/monday-posts', component: MondayPostsComponent },
+  { path: '/orientation', component: OrientationComponent},
 ]
 
 const router = createRouter({
