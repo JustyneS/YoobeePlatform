@@ -1,35 +1,30 @@
 <template>
-  <div class="mondayPosts">
-    <h1>Monday Posts</h1>
-
-    <hr/>
-
-    <div class="postsContainer">
-      <ul>
-        <hr class="seperator"/>
-        <li><p class="postsItem">Week 1: What to do in your first week!</p> <p class="date">Date: 17/06/2023</p></li>
-        <hr class="seperator"/>
-        <li><p class="postsItem">Week 2: Discussing potentials!</p><p class="date">Date: 09/07/2023</p></li>
-        <hr class="seperator"/>
-        <li><p class="postsItem">Week 3: Learning about the industry!</p><p class="date">Date: 26/07/2023</p></li>
-        <hr class="seperator"/>
-        <li><p class="postsItem">Week 4: Gathering information on proposed changes!</p><p class="date">Date: 02/09/2023</p></li>
-        <hr class="seperator"/>
-      </ul>
+    <div class="orientation">
+      <h1>Orientation</h1>
+  
+      <hr/>
+  
+      <div class="postsContainer">
+        <ul>
+          <hr class="seperator"/>
+          <li><p class="postsItem">Course Outline</p> <p class="date">Date: 17/06/2023</p></li>
+          <hr class="seperator"/>
+          <li><p class="postsItem">Welcome to your online studies!</p><p class="date">Date: 09/07/2023</p></li>
+          <hr class="seperator"/>
+        </ul>
+      </div>
     </div>
-  </div>
-</template>
+  </template>
 
 <script>
 export default {
-  name: 'MondayPostsComponent',
+  name: 'OrientationComponent',
 };
 </script>
-  
 
-  <style scoped>
+<style scoped>
   /* Your styling for the component goes here */
-  .mondayPosts {
+  .orientation {
     padding: 40px;
     color: #2c3e50;
   }
