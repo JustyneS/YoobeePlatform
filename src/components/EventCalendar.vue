@@ -25,29 +25,35 @@ const options = reactive({
     weekends: true, // Show weekends in the calendar
     events: storedEvents, // Initial events loaded from local storage
 
-    // Callback function when a date range is selected
+
     select: (arg) => {
-        id.value = id.value + 1; // Increment the event ID counter
+    // Read events from local storage
+    const storedEvents = getEventsFromLocal();
 
-        const cal = arg.view.calendar;
-        cal.unselect();
+    // Find the maximum ID value from stored events
+    const maxId = Math.max(...storedEvents.map(event => parseInt(event.id) || 0)) || 0;
 
-        // Create a new event object
-        const newEvent = {
-            id: `${id.value}`,
-            title: `New Event ${id.value}`,
-            start: arg.start,
-            end: arg.end,
-            allDay: true,
-        };
+    // Increment the event ID counter
+    id.value = maxId + 1;
 
-        cal.addEvent(newEvent); // Add the new event to the calendar
+    const cal = arg.view.calendar;
+    cal.unselect();
+    
+    // Create a new event object
+    const newEvent = {
+        id: `${id.value}`,
+        title: `New Event ${id.value}`,
+        start: arg.start,
+        end: arg.end,
+        allDay: true,
+    };
 
-        // Save the events to local storage
-        const storedEvents = JSON.parse(localStorage.getItem('calendarEvents')) || [];
-        storedEvents.push(newEvent);
-        localStorage.setItem('calendarEvents', JSON.stringify(storedEvents));
-    },
+    cal.addEvent(newEvent); // Add the new event to the calendar
+
+    // Save the events to local storage
+    storedEvents.push(newEvent);
+    saveEventsToLocal(storedEvents);
+},
 
     // Callback function when an event is clicked
     eventClick: (arg) => {
@@ -105,6 +111,25 @@ const deleteEvent = () => {
         // Clear the selected event and newTitle values
         selectedEvent.value = null;
         newTitle.value = '';
+    }
+};
+
+// Helper function to save events to local storage
+const saveEventsToLocal = (events) => {
+    try {
+        localStorage.setItem('calendarEvents', JSON.stringify(events));
+    } catch (error) {
+        console.error('Error saving events to local storage:', error);
+    }
+};
+
+// Helper function to retrieve events from local storage
+const getEventsFromLocal = () => {
+    try {
+        return JSON.parse(localStorage.getItem('calendarEvents')) || [];
+    } catch (error) {
+        console.error('Error retrieving events from local storage:', error);
+        return [];
     }
 };
 </script>
