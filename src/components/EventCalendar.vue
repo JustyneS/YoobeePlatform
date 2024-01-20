@@ -61,19 +61,12 @@ const options = reactive({
         newTitle.value = arg.event.title; // Set the title for editing
     },
 
-    // Callback function when an event is changed (dragged or resized)
-    eventChange: (arg) => {
-        console.log(`Event ${arg.event.title} was changed!`)
-    }
 })
 
 // Function to save changes made to the selected event
 const saveChanges = () => {
     if (selectedEvent.value) {
         selectedEvent.value.setProp('title', newTitle.value);
-
-        // Get the current events from local storage
-        const storedEvents = JSON.parse(localStorage.getItem('calendarEvents')) || [];
 
         // Find the index of the selected event in the stored events array
         const eventIndex = storedEvents.findIndex(event => event.id === selectedEvent.value.id);
@@ -83,7 +76,7 @@ const saveChanges = () => {
             storedEvents[eventIndex].title = newTitle.value;
 
             // Save the modified events array back to local storage
-            localStorage.setItem('calendarEvents', JSON.stringify(storedEvents));
+            saveEventsToLocal(storedEvents);
         }
 
         // Clear the selected event and newTitle values
@@ -94,23 +87,23 @@ const saveChanges = () => {
 
 const deleteEvent = () => {
     if (selectedEvent.value) {
-        // Get the current events from local storage
-        const storedEvents = JSON.parse(localStorage.getItem('calendarEvents')) || [];
-
         // Find the index of the selected event in the stored events array
         const eventIndex = storedEvents.findIndex(event => event.id === selectedEvent.value.id);
 
         if (eventIndex !== -1) {
+             
             // Remove the selected event from the stored events array
             storedEvents.splice(eventIndex, 1);
-
+            // Clear the selected event and newTitle values
+        
             // Save the modified events array back to local storage
-            localStorage.setItem('calendarEvents', JSON.stringify(storedEvents));
+            saveEventsToLocal(storedEvents);
         }
-
-        // Clear the selected event and newTitle values
+        
         selectedEvent.value = null;
         newTitle.value = '';
+        window.location.reload();
+
     }
 };
 
