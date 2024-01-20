@@ -22,6 +22,7 @@
     "vue-bookmark": "^0.0.4",
     "vue-highlight-text": "^1.6.2",
     "vue-router": "^4.2.5",
+    "vue3-modal": "^0.1.6",
     "vuex": "^4.1.0"
   },
   "devDependencies": {
