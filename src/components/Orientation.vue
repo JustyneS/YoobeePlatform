@@ -7,7 +7,7 @@
       <div class="postsContainer">
         <ul>
           <hr class="seperator"/>
-          <li><p class="postsItem">Course Outline</p> <p class="date">Date: 17/06/2023</p></li>
+          <li><router-link to="/CourseOutline" class="menuItems"><p class="postsItem">Course Outline</p> <p class="date">Date: 17/06/2023</p></router-link></li>
           <hr class="seperator"/>
           <li><p class="postsItem">Welcome to your online studies!</p><p class="date">Date: 09/07/2023</p></li>
           <hr class="seperator"/>
@@ -74,4 +74,9 @@ export default {
     margin: 0;
     text-align: right;
   }
+
+  .menuItems {
+  text-decoration: none;
+  color: inherit;
+}
   </style>

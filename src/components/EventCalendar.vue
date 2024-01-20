@@ -53,6 +53,7 @@ const options = reactive({
     // Save the events to local storage
     storedEvents.push(newEvent);
     saveEventsToLocal(storedEvents);
+    window.location.reload();
 },
 
     // Callback function when an event is clicked
@@ -64,22 +65,19 @@ const options = reactive({
 })
 
 // Function to save changes made to the selected event
-const saveChanges = () => {
+const saveChanges = async () => {
     if (selectedEvent.value) {
         selectedEvent.value.setProp('title', newTitle.value);
 
-        // Find the index of the selected event in the stored events array
         const eventIndex = storedEvents.findIndex(event => event.id === selectedEvent.value.id);
 
         if (eventIndex !== -1) {
-            // Update the title of the selected event in the stored events array
             storedEvents[eventIndex].title = newTitle.value;
 
             // Save the modified events array back to local storage
-            saveEventsToLocal(storedEvents);
+            await saveEventsToLocal(storedEvents);
         }
 
-        // Clear the selected event and newTitle values
         selectedEvent.value = null;
         newTitle.value = '';
     }
@@ -109,11 +107,10 @@ const deleteEvent = () => {
 
 // Helper function to save events to local storage
 const saveEventsToLocal = (events) => {
-    try {
+    return new Promise((resolve) => {
         localStorage.setItem('calendarEvents', JSON.stringify(events));
-    } catch (error) {
-        console.error('Error saving events to local storage:', error);
-    }
+        resolve();
+    });
 };
 
 // Helper function to retrieve events from local storage
