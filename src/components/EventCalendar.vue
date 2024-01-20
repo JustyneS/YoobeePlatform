@@ -6,11 +6,13 @@ import timeGridPlugin from '@fullcalendar/timegrid'
 import listPlugin from '@fullcalendar/list'
 import interactionPlugin from '@fullcalendar/interaction'
 
-const id = ref(0)
-const selectedEvent = ref(null)
-const newTitle = ref('')
-const storedEvents = JSON.parse(localStorage.getItem('calendarEvents')) || [];
+// Define reactive variables
+const id = ref(0) // Counter for event IDs
+const selectedEvent = ref(null) // Currently selected event
+const newTitle = ref('') // Title for the new event or modified event
+const storedEvents = JSON.parse(localStorage.getItem('calendarEvents')) || []; // Array to store calendar events
 
+// Define options for FullCalendar
 const options = reactive({
     plugins: [dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin],
     initialView: 'dayGridMonth',
@@ -19,63 +21,105 @@ const options = reactive({
         center: 'title',
         right: 'dayGridMonth,dayGridWeek,listDay'
     },
-    editable: true,
-    selectable: true,
-    weekends: true,
-    events: storedEvents,
+    selectable: true, // Allow users to select dates
+    weekends: true, // Show weekends in the calendar
+    events: storedEvents, // Initial events loaded from local storage
+
 
     select: (arg) => {
-    id.value = id.value + 1;
+    // Read events from local storage
+    const storedEvents = getEventsFromLocal();
+
+    // Find the maximum ID value from stored events
+    const maxId = Math.max(...storedEvents.map(event => parseInt(event.id) || 0)) || 0;
+
+    // Increment the event ID counter
+    id.value = maxId + 1;
 
     const cal = arg.view.calendar;
     cal.unselect();
+    
+    // Create a new event object
     const newEvent = {
         id: `${id.value}`,
         title: `New Event ${id.value}`,
         start: arg.start,
         end: arg.end,
+        allDay: true,
     };
 
-    cal.addEvent(newEvent);
-    
+    cal.addEvent(newEvent); // Add the new event to the calendar
+
     // Save the events to local storage
-    const storedEvents = JSON.parse(localStorage.getItem('calendarEvents')) || [];
     storedEvents.push(newEvent);
-    localStorage.setItem('calendarEvents', JSON.stringify(storedEvents));
+    saveEventsToLocal(storedEvents);
+    window.location.reload();
 },
 
+    // Callback function when an event is clicked
     eventClick: (arg) => {
-        selectedEvent.value = arg.event
-        newTitle.value = arg.event.title
+        selectedEvent.value = arg.event; // Set the selected event
+        newTitle.value = arg.event.title; // Set the title for editing
     },
 
-    eventChange: (arg) => {
-        console.log(`Event ${arg.event.title} was changed!`)
-    }
 })
 
-const saveChanges = () => {
+// Function to save changes made to the selected event
+const saveChanges = async () => {
     if (selectedEvent.value) {
-        // Update the title of the selected event
         selectedEvent.value.setProp('title', newTitle.value);
 
-        // Get the current events from local storage
-        const storedEvents = JSON.parse(localStorage.getItem('calendarEvents')) || [];
+        const eventIndex = storedEvents.findIndex(event => event.id === selectedEvent.value.id);
 
+        if (eventIndex !== -1) {
+            storedEvents[eventIndex].title = newTitle.value;
+
+            // Save the modified events array back to local storage
+            await saveEventsToLocal(storedEvents);
+        }
+
+        selectedEvent.value = null;
+        newTitle.value = '';
+    }
+};
+
+const deleteEvent = () => {
+    if (selectedEvent.value) {
         // Find the index of the selected event in the stored events array
         const eventIndex = storedEvents.findIndex(event => event.id === selectedEvent.value.id);
 
         if (eventIndex !== -1) {
-            // Update the title of the selected event in the stored events array
-            storedEvents[eventIndex].title = newTitle.value;
-
+             
+            // Remove the selected event from the stored events array
+            storedEvents.splice(eventIndex, 1);
+            // Clear the selected event and newTitle values
+        
             // Save the modified events array back to local storage
-            localStorage.setItem('calendarEvents', JSON.stringify(storedEvents));
+            saveEventsToLocal(storedEvents);
         }
-
-        // Clear the selected event and newTitle values
+        
         selectedEvent.value = null;
         newTitle.value = '';
+        window.location.reload();
+
+    }
+};
+
+// Helper function to save events to local storage
+const saveEventsToLocal = (events) => {
+    return new Promise((resolve) => {
+        localStorage.setItem('calendarEvents', JSON.stringify(events));
+        resolve();
+    });
+};
+
+// Helper function to retrieve events from local storage
+const getEventsFromLocal = () => {
+    try {
+        return JSON.parse(localStorage.getItem('calendarEvents')) || [];
+    } catch (error) {
+        console.error('Error retrieving events from local storage:', error);
+        return [];
     }
 };
 </script>
@@ -93,6 +137,7 @@ const saveChanges = () => {
             <input v-model="newTitle" />
         </label>
         <button @click="saveChanges">Save Changes</button>
+        <button @click="deleteEvent">Delete Event</button>
     </div>
 </div>
 </template>

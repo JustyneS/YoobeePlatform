@@ -12,9 +12,11 @@ import MondayPostsComponent from './components/MondayPosts.vue';
 import OrientationComponent from './components/Orientation.vue';
 import LiveSessionsComponent from './components/LiveSessions.vue';
 import CalendarComponent from './components/EventCalendar.vue';
+import CourseOutlineComponent from './components/CourseOutline.vue';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/database';
 import LandingPage from './components/LandingPage.vue'
+
 
 const routes = [
   { path: '/module-one', component: ModuleOne },
@@ -26,6 +28,7 @@ const routes = [
   { path: '/orientation', component: OrientationComponent},
   { path: '/live-sessions', component: LiveSessionsComponent},
   { path: '/EventCalendar', component: CalendarComponent},
+  { path: '/CourseOutline', component: CourseOutlineComponent},
   { path: '/', component: LandingPage },
 ]
 
