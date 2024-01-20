@@ -1,32 +1,41 @@
 <template>
+  <!-- The navigation bar component -->
   <nav class="nav"> 
+    <!-- The button that toggles the navigation menu open and closed -->
     <button @click="toggleNav">
+      <!-- The icon changes based on whether the navigation menu is open or not -->
       <i class="fas" :class="{ 'fa-bars': !$store.state.isOpen, 'fa-times': $store.state.isOpen }"></i>
     </button>
+    <!-- The list of items in the navigation menu -->
     <ul class="navbar">
       <li><i class="fas fa-user"></i> Profile</li>
-      <li><i class="fas fa-bell"></i> Alerts</li>
+      <!--Toggle for Alerts Box-->
+      <li @click="$emit('toggle-alerts')"><i class="fas fa-bell"></i> Alerts</li>
+      <!-- Link to the My Notes page -->
       <li><router-link class='MyNotesPage' to="/my-notes-page"><i class="fas fa-sticky-note"></i> My Notes</router-link></li>       
+      <!-- Link to the Calendar page -->
       <li><router-link to="/EventCalendar" class="calendar-link"><i class="fas fa-clipboard"></i> Calendar</router-link></li>
+      <!-- Link to the Noticeboard page -->
       <li><router-link to="/Noticeboard" class="noticeboard-link"><i class="fas fa-clipboard"></i> Noticeboard</router-link></li>
     </ul>
+    <!-- The logo image -->
     <img src="@/images/Yoobee_Logo.png" alt="Logo" class="logo">
   </nav>
 </template>
 
 <script>
 export default {
-  name: 'AppNavbar',
-  props: ['isNavOpen'],
+  name: 'AppNavbar', // The name of the component
+  props: ['isNavOpen'], // The props passed to the component
   methods: {
+    // The method to toggle the navigation menu open and closed
     toggleNav() {
+      // Commits the 'toggle' mutation to the Vuex store
       this.$store.commit('toggle')
     },
   },
 }
 </script>
-
-
 
 <style scoped>
 
