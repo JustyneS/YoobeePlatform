@@ -19,7 +19,8 @@
       <li><router-link to="/Noticeboard" class="noticeboard-link"><i class="fas fa-clipboard"></i> Noticeboard</router-link></li>
     </ul>
     <!-- The logo image -->
-    <img src="@/images/Yoobee_Logo.png" alt="Logo" class="logo">
+    <router-link to="/" class="landingpage-link"><img src="@/images/Yoobee_Logo.png" alt="Logo" class="logo"></router-link>
+
   </nav>
 </template>
 

@@ -24,6 +24,20 @@
 export default {
   name: 'CourseOutlineComponent',
 };
+
+/*import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { storage } from './firebase';
+
+const uploadPDF = async () => {
+  const pdfFile = document.getElementById('file-input').files[0];
+  const storageRef = ref(storage, 'pdfs/' + pdfFile.name);
+  
+  await uploadBytes(storageRef, pdfFile);
+
+  const downloadURL = await getDownloadURL(storageRef);
+  console.log('PDF uploaded. Download link:', downloadURL);
+};*/
+
 </script>
 
 
