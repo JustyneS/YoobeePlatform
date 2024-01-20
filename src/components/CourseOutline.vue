@@ -1,21 +1,23 @@
 <template>
-    <div class="content-container">
-        <h1>Course Outline 2024</h1>
+
+  <div class="content-container">
+    <img src="@/images/courseOutline.jpg" alt="image" class="headerImage">
+    <h1>Course Outline 2024</h1>
             
-        <p class="content">Vehicula ipsum a arcu cursus vitae congue mauris rhoncus aenean. Nibh mauris cursus mattis molestie. Vitae purus faucibus ornare suspendisse. Quis lectus nulla at volutpat diam ut. Magna fringilla urna porttitor rhoncus dolor purus non enim praesent. Viverra orci sagittis eu volutpat odio. Consectetur a erat nam at lectus urna duis convallis. Amet dictum sit amet justo donec. Interdum varius sit amet mattis vulputate enim nulla aliquet. Sit amet massa vitae tortor condimentum. Lacus vel facilisis volutpat est velit egestas dui id. Enim tortor at auctor urna nunc. Vitae proin sagittis nisl rhoncus mattis rhoncus urna. Duis at consectetur lorem donec massa sapien faucibus. Elit eget gravida cum sociis natoque penatibus et magnis dis.
-        Adipiscing tristique risus nec feugiat in fermentum posuere urna. Enim ut sem viverra aliquet eget sit. </p>
+    <p class="content">Vehicula ipsum a arcu cursus vitae congue mauris rhoncus aenean. Nibh mauris cursus mattis molestie. Vitae purus faucibus ornare suspendisse. Quis lectus nulla at volutpat diam ut. Magna fringilla urna porttitor rhoncus dolor purus non enim praesent. Viverra orci sagittis eu volutpat odio. Consectetur a erat nam at lectus urna duis convallis. Amet dictum sit amet justo donec. Interdum varius sit amet mattis vulputate enim nulla aliquet. Sit amet massa vitae tortor condimentum. Lacus vel facilisis volutpat est velit egestas dui id. Enim tortor at auctor urna nunc. Vitae proin sagittis nisl rhoncus mattis rhoncus urna. Duis at consectetur lorem donec massa sapien faucibus. Elit eget gravida cum sociis natoque penatibus et magnis dis.
+      Adipiscing tristique risus nec feugiat in fermentum posuere urna. Enim ut sem viverra aliquet eget sit. </p>
 
         
 
-        <p class="content">Vehicula ipsum a arcu cursus vitae congue mauris rhoncus aenean. Nibh mauris cursus mattis molestie. Vitae purus faucibus ornare suspendisse. Quis lectus nulla at volutpat diam ut. Magna fringilla urna porttitor rhoncus dolor purus non enim praesent. Viverra orci sagittis eu volutpat odio. Consectetur a erat nam at lectus urna duis convallis. Amet dictum sit amet justo donec. Interdum varius sit amet mattis vulputate enim nulla aliquet. Sit amet massa vitae tortor condimentum. Lacus vel facilisis volutpat est velit egestas dui id. Enim tortor at auctor urna nunc. Vitae proin sagittis nisl rhoncus mattis rhoncus urna. Duis at consectetur lorem donec massa sapien faucibus. Elit eget gravida cum sociis natoque penatibus et magnis dis.
-        Adipiscing tristique risus nec feugiat in fermentum posuere urna. Enim ut sem viverra aliquet eget sit. </p>
+    <p class="content">Vehicula ipsum a arcu cursus vitae congue mauris rhoncus aenean. Nibh mauris cursus mattis molestie. Vitae purus faucibus ornare suspendisse. Quis lectus nulla at volutpat diam ut. Magna fringilla urna porttitor rhoncus dolor purus non enim praesent. Viverra orci sagittis eu volutpat odio. Consectetur a erat nam at lectus urna duis convallis. Amet dictum sit amet justo donec. Interdum varius sit amet mattis vulputate enim nulla aliquet. Sit amet massa vitae tortor condimentum. Lacus vel facilisis volutpat est velit egestas dui id. Enim tortor at auctor urna nunc. Vitae proin sagittis nisl rhoncus mattis rhoncus urna. Duis at consectetur lorem donec massa sapien faucibus. Elit eget gravida cum sociis natoque penatibus et magnis dis.
+      Adipiscing tristique risus nec feugiat in fermentum posuere urna. Enim ut sem viverra aliquet eget sit. </p>
 
-        <hr class="separator"/> 
+    <hr class="separator"/> 
+  </div>
+    <a class="download-link" href="src/downloads/CourseOutline.pdf" download="CourseOutline.pdf">Course Outline.pdf</a>
 
-        <a class="download-link" href="src/downloads/CourseOutline.pdf" download="CourseOutline.pdf">Course Outline.pdf</a>
 
-
-    </div>
+  
 </template>
 
 
@@ -44,11 +46,18 @@ const uploadPDF = async () => {
 
 <style scoped>
 
+  .headerImage {
+    display: inline-block;
+    Padding-top: 20px;
+    width: 70vw;
+    height: 30vh
+  }
+
   h1 {
     text-align: left;
     padding-top: 40px;
     padding-bottom: 20px;
-    padding-left: 10vw;
+    padding-left: 80px;
     padding-right: auto;
   }
 
@@ -56,6 +65,7 @@ const uploadPDF = async () => {
     max-width: 80vw;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
   }
 
   .content {
