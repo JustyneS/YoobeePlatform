@@ -16,7 +16,6 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/database';
 import LandingPage from './components/LandingPage.vue'
 
-
 const routes = [
   { path: '/module-one', component: ModuleOne },
   { path: '/module-two', component: ModuleTwo },

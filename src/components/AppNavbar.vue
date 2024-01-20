@@ -9,7 +9,8 @@
     <!-- The list of items in the navigation menu -->
     <ul class="navbar">
       <li><i class="fas fa-user"></i> Profile</li>
-      <li><i class="fas fa-bell"></i> Alerts</li>
+      <!--Toggle for Alerts Box-->
+      <li @click="$emit('toggle-alerts')"><i class="fas fa-bell"></i> Alerts</li>
       <!-- Link to the My Notes page -->
       <li><router-link class='MyNotesPage' to="/my-notes-page"><i class="fas fa-sticky-note"></i> My Notes</router-link></li>       
       <!-- Link to the Calendar page -->
