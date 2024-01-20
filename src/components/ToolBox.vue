@@ -4,7 +4,7 @@
     <!-- The textarea for writing a note, displayed if showNoteArea is true -->
     <textarea v-if="showNoteArea" v-model="noteContent" class="note-textarea"></textarea>
     <!-- The button to toggle the note area and submit a note -->
-    <button class="toolbox-button" @click="toggleNoteArea"><i class="fa-solid fa-pencil"></i> {{ showNoteArea ? 'Submit Note' : 'Take Note' }}</button>
+    <button class="toolbox-button" @click="toggleNoteArea"><i class="fa-solid fa-pencil"></i> {{ showNoteArea ? 'Save Note' : 'Take Note' }}</button>
     <!-- The button to add a bookmark -->
     <button class="toolbox-button" @click="addBookmark"><i class="fas fa-bookmark"></i> Bookmark</button>
   </div>
@@ -104,6 +104,7 @@ export default {
   top: 50%;
   right: 0;
   width: 200px;
+  height: 250px;
   padding: 20px;
   background-color: transparent;
   overflow-y: auto;
@@ -111,7 +112,7 @@ export default {
 }
 .toggle-button {
   position: fixed;
-  top: 50%;
+  top: 45%;
   right: 0;
   padding: 10px;
   margin-right: 10px;
@@ -133,6 +134,9 @@ export default {
   background-color: tran;
   border: none;
   border-radius: 5px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgb(189,137,255);
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -140,9 +144,12 @@ export default {
   background-color: rgb(208 ,179,255);
 }
 .note-textarea {
-  width: 100%;
+  width: 200px;
   height: 100px;
   margin-bottom: 10px;
-
+  border-style: solid;
+  border-color: rgb(189,137,255);
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
 }
  </style>
