@@ -14,8 +14,7 @@ import LiveSessionsComponent from './components/LiveSessions.vue';
 import CalendarComponent from './components/EventCalendar.vue';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/database';
-
-
+import LandingPage from './components/LandingPage.vue'
 
 
 const routes = [
@@ -28,6 +27,7 @@ const routes = [
   { path: '/orientation', component: OrientationComponent},
   { path: '/live-sessions', component: LiveSessionsComponent},
   { path: '/EventCalendar', component: CalendarComponent},
+  { path: '/', component: LandingPage },
 ]
 
 const router = createRouter({
