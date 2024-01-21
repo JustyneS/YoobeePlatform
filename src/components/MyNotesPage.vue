@@ -2,9 +2,6 @@
   <!-- The MyNotesPage component -->
   <div class="MyNotesPage" :class="{ 'shift-content': $store.state.isOpen }">  <!--Shift content will move the page content when the SideNav is open-->
     <h1>My Notes Page</h1>
-
-    <!-- Button to fetch and display the saved notes -->
-    <button class="viewNotes" @click="getNotes">Click here to view your saved notes</button>
     
     <!-- Displayed when the notes are being fetched -->
     <div v-if="loading">No notes yet...</div>
@@ -114,16 +111,6 @@ h1{
   margin-bottom: 10px;
   width: 500px;
   background-color: rgb(243,233,255); 
-}
-
-.viewNotes {
-  border-radius: 5px;
-  background-color: rgb(189,137,255);
-  width: 350px;
-  height: 60px;
-  font-size: 20px;
-  font-family: Arial, Helvetica, sans-serif;
-  margin-bottom: 20px;
 }
 .note-box p {
   margin-top: 15px;
