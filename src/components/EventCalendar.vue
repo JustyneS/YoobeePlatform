@@ -132,12 +132,19 @@ const getEventsFromLocal = () => {
         <FullCalendar class="full-calendar" v-bind:options="options" />
     
     <div class="event-container">
+
         <label id="event-title">
             Event Title:
             <input v-model="newTitle" />
         </label>
-        <button @click="saveChanges">Save Changes</button>
-        <button @click="deleteEvent">Delete Event</button>
+
+        <div class="button-container">
+
+            <button @click="saveChanges">Save Changes</button>
+            <button @click="deleteEvent">Delete Event</button>
+
+        </div>
+
     </div>
 </div>
 </template>
@@ -146,8 +153,8 @@ const getEventsFromLocal = () => {
 <style scoped>
 
 .calendar-container {
-display: flex;
-font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .full-calendar {
@@ -160,8 +167,16 @@ font-family: Arial, Helvetica, sans-serif;
 
 .event-container {
     padding-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
+   
+    display: flex;
+    flex-direction: column; /* Align children in a vertical layout */
+    align-items: center; /* Center children horizontally */
+}
+.button-container {
+  margin-top: 10px; /* Adjust the margin between input and buttons */
+}
+.button-container button{
+  margin-right: 10px; /* Adjust the margin between input and buttons */
 }
 
 #event-title {
