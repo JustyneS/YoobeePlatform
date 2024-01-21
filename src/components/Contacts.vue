@@ -3,9 +3,7 @@
     <div class="content-container">
       <img src="@/images/contacts.jpg" alt="image" class="headerImage">
       <h1>Important Contacts:</h1>
-              
-
-
+            
       <p class="content">Online support: onlinesupport@up.education</p>
       <p class="content">Roohi Verma: roohi.verma@yoobeecolleges.com</p>
   

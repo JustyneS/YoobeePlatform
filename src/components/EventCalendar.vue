@@ -6,7 +6,7 @@ import timeGridPlugin from '@fullcalendar/timegrid'
 import listPlugin from '@fullcalendar/list'
 import interactionPlugin from '@fullcalendar/interaction'
 
-// Define reactive variables
+
 const id = ref(0) // Counter for event IDs
 const selectedEvent = ref(null) // Currently selected event
 const newTitle = ref('') // Title for the new event or modified event
@@ -169,14 +169,14 @@ const getEventsFromLocal = () => {
     padding-top: 50px;
    
     display: flex;
-    flex-direction: column; /* Align children in a vertical layout */
-    align-items: center; /* Center children horizontally */
+    flex-direction: column; 
+    align-items: center;
 }
 .button-container {
-  margin-top: 10px; /* Adjust the margin between input and buttons */
+  margin-top: 10px;
 }
 .button-container button{
-  margin-right: 10px; /* Adjust the margin between input and buttons */
+  margin-right: 10px; 
 }
 
 #event-title {
