@@ -15,8 +15,9 @@ import CalendarComponent from './components/EventCalendar.vue';
 import CourseOutlineComponent from './components/CourseOutline.vue';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/database';
-import LandingPage from './components/LandingPage.vue'
-
+import LandingPage from './components/LandingPage.vue';
+import MondayPostWeek1Component from './components/MondayPostWeek1.vue';
+import ImportantContactComponent from './components/Contacts.vue';
 
 const routes = [
   { path: '/module-one', component: ModuleOne },
@@ -29,6 +30,8 @@ const routes = [
   { path: '/live-sessions', component: LiveSessionsComponent},
   { path: '/EventCalendar', component: CalendarComponent},
   { path: '/CourseOutline', component: CourseOutlineComponent},
+  { path: '/week-one', component: MondayPostWeek1Component},
+  { path: '/importantContacts', component: ImportantContactComponent},
   { path: '/', component: LandingPage },
 ]
 

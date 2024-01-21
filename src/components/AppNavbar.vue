@@ -8,7 +8,7 @@
     </button>
     <!-- The list of items in the navigation menu -->
     <ul class="navbar">
-      <li><i class="fas fa-user"></i> Profile</li>
+      <li @click="$emit('toggle-profile')"><i class="fas fa-user"></i> Profile</li>
       <!--Toggle for Alerts Box-->
       <li @click="$emit('toggle-alerts')"><i class="fas fa-bell"></i> Alerts</li>
       <!-- Link to the My Notes page -->
@@ -19,7 +19,8 @@
       <li><router-link to="/Noticeboard" class="noticeboard-link"><i class="fas fa-clipboard"></i> Noticeboard</router-link></li>
     </ul>
     <!-- The logo image -->
-    <img src="@/images/Yoobee_Logo.png" alt="Logo" class="logo">
+    <router-link to="/" class="landingpage-link"><img src="@/images/Yoobee_Logo.png" alt="Logo" class="logo"></router-link>
+
   </nav>
 </template>
 
